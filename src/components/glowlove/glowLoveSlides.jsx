@@ -264,7 +264,7 @@ export function Creators() {
               <div className="gl-rcard__stats">
                 <span><b>{fmt(c.views)}</b><small>views</small></span>
                 <span><b>{c.eng}</b><small>eng.</small></span>
-                <span><b className="gl-rcard__er">{c.er}%</b><small>ER</small></span>
+                <span><b className="gl-rcard__er">{c.er}%</b><small>Engagement rate</small></span>
               </div>
               <div className="gl-rcard__bar"><span style={{ '--w': `${(c.er / maxEr) * 100}%` }} /></div>
             </div>
