@@ -1,0 +1,184 @@
+/* =========================================================================
+   "Glow Love" wrap style — soft gradient bg, editorial headlines,
+   phone mockups, floating emojis.
+   ========================================================================= */
+.gl { min-height: calc(100vh - 60px); background: #ecebe9; display: flex; justify-content: center; padding: 26px 18px 50px; font-family: 'Inter', system-ui, sans-serif; }
+
+.gl-stage {
+  position: relative; width: 100%; max-width: 1180px; min-height: 600px;
+  border-radius: 30px; overflow: hidden;
+  box-shadow: 0 30px 70px rgba(60,40,90,0.22);
+  display: flex; flex-direction: column;
+}
+/* soft gradient backdrops (the part you liked) */
+.gl-grad--a { background: linear-gradient(135deg, #ffe9d6 0%, #ffe0ea 46%, #ece0fb 100%); }
+.gl-grad--b { background: linear-gradient(135deg, #e7e9ff 0%, #ffe0ee 52%, #fff0db 100%); }
+.gl-grad--c { background: linear-gradient(135deg, #ffe2ec 0%, #ffe9d6 50%, #f3e2ff 100%); }
+.gl-grad--d { background: linear-gradient(135deg, #fbeede 0%, #fbe0ea 45%, #ece1f8 100%); }
+.gl-grad--e { background: linear-gradient(135deg, #d9f6ec 0%, #e9e6ff 55%, #ffe5f0 100%); }
+.gl-grad--f { background: linear-gradient(135deg, #ffe7d6 0%, #ffdfe8 55%, #efe2ff 100%); }
+.gl-grad--g { background: linear-gradient(135deg, #fdeede 0%, #f4e6ff 60%, #ffe6f1 100%); }
+.gl-grad--h { background: linear-gradient(135deg, #ffe0ea 0%, #ece0fb 50%, #dde8ff 100%); }
+
+/* floating emojis */
+.gl-emojis { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
+.gl-emojis span { position: absolute; filter: drop-shadow(0 4px 8px rgba(120,80,140,0.18)); animation: gl-float 5.5s ease-in-out infinite; }
+@keyframes gl-float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-16px) rotate(6deg); } }
+
+/* chrome */
+.gl-chrome { position: relative; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 18px 24px 0; }
+.gl-dots { display: flex; gap: 6px; }
+.gl-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(60,40,90,0.18); transition: all 0.2s ease; }
+.gl-dots span.done { background: rgba(160,107,255,0.5); }
+.gl-dots span.on { width: 22px; border-radius: 999px; background: linear-gradient(90deg, #ff7eb3, #a06bff); }
+.gl-brand { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(60,40,90,0.5); }
+.gl-close { margin-left: auto; width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.6); color: #6b4f80; cursor: pointer; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; transition: transform 0.15s ease; }
+.gl-close:hover { transform: scale(1.1); }
+
+.gl-body { position: relative; z-index: 4; flex: 1; display: flex; animation: gl-in 0.5s cubic-bezier(0.2,0.7,0.2,1); }
+@keyframes gl-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* slide layouts */
+.gl-slide { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 26px 56px 50px; width: 100%; }
+.gl-slide--center { align-items: center; text-align: center; }
+.gl-slide--split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 30px; align-items: center; }
+
+/* editorial type */
+.gl-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #b06a9a; }
+.gl-eyebrow--dot::before { content: '●'; color: #ff5d8f; margin-right: 7px; font-size: 9px; vertical-align: middle; }
+.gl-h1 { font-size: clamp(48px, 7.5vw, 80px); font-weight: 800; letter-spacing: -0.035em; line-height: 0.98; color: #2a2342; margin: 14px 0; }
+.gl-h2 { font-size: clamp(40px, 6vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; color: #2a2342; margin: 12px 0; }
+.gl-accent { background: linear-gradient(90deg, #ff6fae, #a06bff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gl-sub { font-size: 17px; line-height: 1.5; color: #6b6080; max-width: 460px; margin: 6px 0; }
+.gl-slide--center .gl-sub { margin-left: auto; margin-right: auto; }
+.gl-sub--big { font-size: 22px; color: #2a2342; } .gl-sub b { color: #a06bff; font-weight: 700; }
+.gl-men { color: #2f6dd0; font-weight: 600; }
+
+/* chips */
+.gl-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.gl-slide--center .gl-chips { justify-content: center; }
+.gl-chip { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.9); border-radius: 999px; padding: 9px 15px; font-size: 14px; color: #4a4060; box-shadow: 0 6px 16px rgba(120,80,140,0.1); }
+.gl-chip b { font-weight: 700; color: #2a2342; } .gl-chip i { font-style: normal; opacity: 0.6; }
+.gl-chip--ghost { background: transparent; border: 0; box-shadow: none; margin-top: 12px; color: #6b6080; }
+.gl-chip__ic { width: 22px; height: 22px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; }
+.gl-chip__ic--tt { background: #111; } .gl-chip__ic--ig { background: linear-gradient(135deg,#feda75,#d62976,#962fbf); }
+
+/* cover faces */
+.gl-faces { display: flex; justify-content: center; margin-top: 22px; }
+.gl-faces span { width: 54px; height: 54px; border-radius: 50%; background: #ddd center/cover no-repeat; border: 3px solid #fff; margin-left: -14px; box-shadow: 0 6px 16px rgba(120,80,140,0.2); }
+.gl-faces span:first-child { margin-left: 0; }
+
+/* ---- phone mockups (comments) ---- */
+.gl-split__phones { position: relative; height: 540px; }
+.gl-phone { position: absolute; top: 0; width: 290px; background: #0e0e12; border-radius: 42px; padding: 9px; box-shadow: 0 30px 60px rgba(40,20,60,0.34); transform: rotate(var(--t)); }
+.gl-phone--back { left: 2%; top: 22px; opacity: 0.96; }
+.gl-phone--front { right: 4%; top: 0; z-index: 2; }
+.gl-phone__screen { position: relative; background: #fff; border-radius: 34px; overflow: hidden; height: 500px; }
+.gl-phone__status { display: flex; justify-content: space-between; align-items: center; padding: 12px 22px 6px; font-size: 12px; font-weight: 700; color: #111; }
+.gl-phone__sig { display: inline-flex; align-items: center; gap: 3px; }
+.gl-phone__sig i { width: 3px; height: 8px; background: #111; border-radius: 1px; opacity: 0.85; } .gl-phone__sig i:nth-child(1){height:5px;} .gl-phone__sig i:nth-child(2){height:7px;}
+.gl-phone__sig b { width: 18px; height: 9px; border: 1px solid #111; border-radius: 2px; display: inline-block; margin-left: 3px; }
+.gl-phone__notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 84px; height: 24px; background: #0e0e12; border-radius: 999px; z-index: 3; }
+
+.gl-feed { height: calc(100% - 38px); overflow: hidden; }
+.gl-feed__hd { text-align: center; font-size: 14px; font-weight: 700; color: #111; padding: 10px 0; border-bottom: 1px solid #f0f0f0; position: relative; }
+.gl-feed--ig .gl-feed__hd { text-align: left; padding-left: 16px; }
+.gl-feed__list { padding: 8px 14px; }
+.gl-row { display: flex; gap: 9px; padding: 9px 0; align-items: flex-start; }
+.gl-row__av { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.gl-row__b { flex: 1; min-width: 0; }
+.gl-row__u { font-size: 12px; font-weight: 600; color: #65636b; }
+.gl-row__t { margin: 1px 0 0; font-size: 13px; line-height: 1.3; color: #161823; }
+.gl-row__meta { display: flex; gap: 14px; margin-top: 4px; font-size: 11px; color: #9a98a0; font-weight: 500; }
+.gl-row__like { display: flex; flex-direction: column; align-items: center; gap: 1px; color: #c7c5cc; }
+.gl-row__heart { font-size: 15px; } .gl-row__heart.tt { color: #fe2c55; }
+.gl-row__like small { font-size: 10px; color: #9a98a0; }
+
+/* ---- content photo wall ---- */
+.gl-cnt-head { text-align: center; margin-bottom: 24px; }
+.gl-cnt-head .gl-h2 { margin: 6px 0 0; }
+.gl-photowall { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; padding-top: 6px; }
+.gl-photo { position: relative; width: 168px; transform: rotate(var(--t)); transition: transform 0.2s ease; }
+.gl-photo:hover { transform: rotate(0) translateY(-6px) scale(1.04); z-index: 30 !important; }
+.gl-photo__img { display: block; width: 100%; aspect-ratio: 4/5; background: #ccc center/cover no-repeat; border-radius: 16px; box-shadow: 0 16px 32px rgba(80,50,110,0.22); }
+.gl-photo__tag { position: absolute; left: 8px; bottom: -15px; display: flex; align-items: center; gap: 7px; background: #fff; border-radius: 999px; padding: 4px 11px 4px 4px; box-shadow: 0 8px 18px rgba(80,50,110,0.18); }
+.gl-photo__av { width: 26px; height: 26px; border-radius: 50%; background: #ccc center/cover no-repeat; flex: 0 0 auto; }
+.gl-photo__tag b { display: block; font-size: 11px; font-weight: 600; color: #2a2342; white-space: nowrap; } .gl-photo__tag small { display: block; font-size: 9px; color: #9a8fb0; }
+
+/* ---- creators ---- */
+.gl-team { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 720px; margin: 0 auto; width: 100%; }
+.gl-tcard { background: rgba(255,255,255,0.72); border: 1px solid rgba(255,255,255,0.9); border-radius: 18px; padding: 18px; position: relative; box-shadow: 0 14px 30px rgba(120,80,140,0.12); }
+.gl-tcard.is-top { border-color: #ffb8d6; box-shadow: 0 16px 36px rgba(255,120,180,0.24); }
+.gl-tcard__crown { position: absolute; top: -10px; left: 18px; background: linear-gradient(90deg,#ff7eb3,#a06bff); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+.gl-tcard__pic { display: block; width: 50px; height: 50px; border-radius: 50%; background: #ccc center/cover no-repeat; box-shadow: 0 4px 10px rgba(80,50,110,0.16); }
+.gl-tcard__id { margin: 10px 0 12px; } .gl-tcard__id b { display: block; font-size: 16px; color: #2a2342; } .gl-tcard__id small { font-size: 12px; color: #9a8fb0; }
+.gl-tcard__stats { display: flex; gap: 18px; } .gl-tcard__stats span { display: flex; flex-direction: column; } .gl-tcard__stats b { font-size: 18px; font-weight: 700; color: #2a2342; } .gl-tcard__stats small { font-size: 10px; color: #9a8fb0; text-transform: uppercase; letter-spacing: 0.04em; }
+.gl-tcard__bar { margin-top: 12px; height: 6px; background: rgba(120,80,140,0.12); border-radius: 999px; overflow: hidden; }
+.gl-tcard__bar span { display: block; height: 100%; background: linear-gradient(90deg,#ff7eb3,#a06bff); border-radius: 999px; }
+
+/* ---- katie note ---- */
+.gl-note { max-width: 540px; background: rgba(255,255,255,0.75); border-radius: 22px; padding: 28px 30px; box-shadow: 0 18px 40px rgba(120,80,140,0.14); margin-top: 16px; }
+.gl-note__av { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg,#ff8fb1,#a06bff); color: #fff; font-weight: 700; font-size: 20px; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.gl-note__msg { font-size: 19px; line-height: 1.5; color: #2a2342; margin: 0; } .gl-note__msg b { color: #a06bff; }
+.gl-note__sign { display: block; margin-top: 12px; font-size: 16px; font-weight: 600; color: #6b6080; }
+
+/* ---- recap ---- */
+.gl-recap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; max-width: 620px; margin: 18px auto; width: 100%; }
+.gl-recap > div { background: rgba(255,255,255,0.6); border-radius: 16px; padding: 16px 10px; }
+.gl-recap > div.hl { background: linear-gradient(150deg, rgba(255,126,179,0.28), rgba(160,107,255,0.22)); }
+.gl-recap b { display: block; font-size: 26px; font-weight: 800; color: #2a2342; letter-spacing: -0.02em; }
+.gl-recap small { font-size: 11px; color: #8a7fa0; }
+.gl-cta { margin-top: 18px; border: 0; border-radius: 999px; background: linear-gradient(90deg,#ff6fae,#a06bff); color: #fff; font-size: 15px; font-weight: 700; padding: 14px 26px; cursor: pointer; box-shadow: 0 12px 26px rgba(160,107,255,0.34); transition: transform 0.15s ease; }
+.gl-cta:hover { transform: translateY(-2px); }
+
+/* tap zones + arrows */
+.gl-tap { position: absolute; top: 60px; bottom: 0; width: 13%; z-index: 3; background: transparent; border: 0; cursor: pointer; }
+.gl-tap--prev { left: 0; } .gl-tap--next { right: 0; }
+.gl-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 6; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,0.7); color: #6b4f80; font-size: 24px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(120,80,140,0.16); transition: transform 0.15s ease; }
+.gl-arrow:hover:not(:disabled) { transform: translateY(-50%) scale(1.1); }
+.gl-arrow:disabled { opacity: 0.3; cursor: default; }
+.gl-arrow--prev { left: 14px; } .gl-arrow--next { right: 14px; }
+
+@media (max-width: 900px) {
+  .gl-slide--split { grid-template-columns: 1fr; }
+  .gl-split__phones { height: 420px; }
+  .gl-arrow { display: none; } .gl-tap { width: 26%; }
+  .gl-team, .gl-recap { grid-template-columns: 1fr 1fr; }
+}
+/* ---- Engagement · Hero 5× ---- */
+.gl-eng { justify-content: center; }
+.gl-eng .gl-eyebrow { margin-bottom: 8px; }
+.gl-five {
+  display: inline-block; transform-origin: center; opacity: 0;
+  font-size: clamp(140px, 22vw, 230px); font-weight: 800; line-height: 0.86; letter-spacing: -0.04em;
+  background: linear-gradient(120deg, #ff6fae, #a06bff 70%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.gl-five.play { animation: glFiveIn 1s cubic-bezier(.2,.85,.3,1.25) forwards, glFiveBreathe 4.5s ease-in-out 1.1s infinite; }
+@keyframes glFiveIn {
+  0% { opacity: 0; transform: scale(.34) rotate(-7deg); filter: blur(10px); }
+  55% { opacity: 1; transform: scale(1.1) rotate(2deg); filter: blur(0); }
+  72% { transform: scale(.97) rotate(-1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); filter: blur(0); }
+}
+@keyframes glFiveBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.022); } }
+.gl-five-sub { font-size: clamp(20px, 3vw, 28px); font-weight: 800; letter-spacing: -0.02em; color: #2a2342; margin-top: -2px; }
+
+.gl-eng-stats { display: flex; margin-top: 40px; }
+.gl-eng-stat { position: relative; padding: 0 30px; text-align: center; }
+.gl-eng-stat + .gl-eng-stat::before { content: ""; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px; background: rgba(120,92,160,0.16); }
+.gl-eng-stat__v {
+  font-weight: 800; font-size: 32px; letter-spacing: -0.02em;
+  background: linear-gradient(120deg, #ff6fae, #a06bff 70%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.gl-eng-stat--mut .gl-eng-stat__v { background: none; -webkit-text-fill-color: initial; color: #9a8f98; }
+.gl-eng-stat__l { font-size: 12px; font-weight: 600; color: #7a6f78; margin-top: 3px; }
+.gl-proof { opacity: 0; transform: translateY(14px); }
+.gl-proof.play { animation: glProofUp 0.6s cubic-bezier(.2,.8,.2,1) forwards; animation-delay: calc(0.7s + var(--i) * 0.12s); }
+@keyframes glProofUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .gl-emojis span, .gl-body { animation: none; }
+  .gl-five, .gl-proof { opacity: 1; transform: none; animation: none; }
+}
