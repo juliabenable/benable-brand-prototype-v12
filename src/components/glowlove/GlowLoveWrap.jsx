@@ -50,15 +50,21 @@ export default function GlowLoveWrap({ onBack }) {
 
         <div className="gl-body" key={slide.key}><Body onCta={() => onBack && onBack('Dashboard')} /></div>
 
+        {/* invisible tap zones live inside the tile — only while there's a next slide
+            (kept off the last slide so they don't block its CTA) */}
         {!isLast && (
           <>
             <button type="button" className="gl-tap gl-tap--prev" onClick={prev} aria-label="Previous" tabIndex={-1} />
             <button type="button" className="gl-tap gl-tap--next" onClick={next} aria-label="Next" tabIndex={-1} />
-            <button type="button" className="gl-arrow gl-arrow--prev" onClick={prev} disabled={index === 0} aria-label="Previous slide">‹</button>
-            <button type="button" className="gl-arrow gl-arrow--next" onClick={next} aria-label="Next slide">›</button>
           </>
         )}
       </article>
+
+      {/* arrows sit OUTSIDE the tile, in the side gutters. Prev is always
+          available (disabled only on the first slide) so you can go back
+          even from the last slide; next hides on the last slide. */}
+      <button type="button" className="gl-arrow gl-arrow--prev" onClick={prev} disabled={index === 0} aria-label="Previous slide">‹</button>
+      {!isLast && <button type="button" className="gl-arrow gl-arrow--next" onClick={next} aria-label="Next slide">›</button>}
     </div>
   );
 }
