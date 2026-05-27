@@ -2,6 +2,7 @@
    "Glow Love" wrap style — soft gradient bg, editorial headlines,
    phone mockups, floating emojis.
    ========================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 .gl { min-height: calc(100vh - 60px); background: #ecebe9; display: flex; justify-content: center; padding: 26px 18px 50px; font-family: 'Inter', system-ui, sans-serif; }
 
 .gl-stage {
@@ -181,4 +182,116 @@
 @media (prefers-reduced-motion: reduce) {
   .gl-emojis span, .gl-body { animation: none; }
   .gl-five, .gl-proof { opacity: 1; transform: none; animation: none; }
+  .gl-hwrap .gl-hd { opacity: 1; transform: translate(-50%, -50%) scale(1); animation: none; }
 }
+
+/* ====================== master-deck selections ====================== */
+
+/* dark slides (cover + recap) */
+.gl-grad--dark { background: linear-gradient(165deg, #2a1830, #43204a 50%, #6a2d63); }
+.gl-stage--dark .gl-brand { color: rgba(255,255,255,0.55); }
+.gl-stage--dark .gl-close { background: rgba(255,255,255,0.16); color: #fff; }
+.gl-stage--dark .gl-dots span { background: rgba(255,255,255,0.22); }
+.gl-stage--dark .gl-dots span.done { background: rgba(255,182,222,0.6); }
+.gl-stage--dark .gl-dots span.on { background: linear-gradient(90deg,#ffd1a8,#cda9ff); }
+.gl-stage--dark .gl-arrow { background: rgba(255,255,255,0.16); color: #fff; }
+.gl-stage--dark .gl-h1, .gl-stage--dark .gl-h2 { color: #fff; }
+.gl-stage--dark .gl-eyebrow { color: #ffd1ea; }
+.gl-stage--dark .gl-sub { color: #e7c9f0; }
+
+/* Cover · stat tease */
+.gl-tease { display: flex; gap: 14px; align-items: center; justify-content: center; margin-top: 24px; font-size: 16px; color: #e7c9f0; }
+.gl-tease b { color: #fff; font-weight: 800; font-size: 21px; }
+.gl-tease__dot { opacity: 0.4; }
+
+/* Reach · heart of dots */
+.gl-reach-num { font-size: clamp(40px, 6vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 6px 0 0;
+  background: linear-gradient(120deg,#ff6fae,#a06bff 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.gl-hwrap { position: relative; width: 440px; height: 320px; margin: 4px auto 2px; }
+.gl-hd { position: absolute; border-radius: 50%; opacity: 0; transform: translate(-50%,-50%) scale(0.3);
+  background: radial-gradient(circle at 44% 40%, #ffd3e2 0%, #ff7aa3 62%, #f0589a 100%); }
+.gl-hwrap.play .gl-hd { animation: glHdIn 0.5s cubic-bezier(.34,1.5,.64,1) forwards, glHdTw 3.2s ease-in-out infinite; }
+@keyframes glHdIn { to { opacity: 1; transform: translate(-50%,-50%) scale(1); } }
+@keyframes glHdTw { 0%,100% { filter: brightness(0.92); } 50% { filter: brightness(1.4); } }
+
+/* Comments · collage wall */
+.gl-slide:has(.gl-wall) { position: relative; overflow: hidden; }
+.gl-wall { columns: 5; column-gap: 12px; max-width: 1000px; width: 100%; margin: 0 auto; max-height: 430px; overflow: hidden; }
+.gl-wcard { break-inside: avoid; position: relative; margin: 0 0 12px; background: #fff; border-radius: 14px; padding: 11px 12px;
+  box-shadow: 0 8px 20px rgba(80,50,90,0.1); transform: rotate(var(--t)); }
+.gl-wcard__plat { position: absolute; top: 9px; right: 9px; width: 18px; height: 18px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #fff; }
+.gl-wcard__plat.tt { background: #111; } .gl-wcard__plat.ig { background: linear-gradient(135deg,#feda75,#d62976,#962fbf); }
+.gl-wcard__row { display: flex; gap: 9px; }
+.gl-wcard__av { width: 30px; height: 30px; border-radius: 50%; color: #fff; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.gl-wcard__u { font-size: 11.5px; font-weight: 600; color: #9a948b; }
+.gl-wcard__t { font-size: 13px; line-height: 1.35; color: #1a1a1a; margin-top: 1px; }
+.gl-wall__fade { position: absolute; left: 0; right: 0; bottom: 0; height: 96px; pointer-events: none; z-index: 5;
+  background: linear-gradient(transparent, rgba(243,236,250,0.92)); }
+
+/* Creators · relationship cards (no ranking) */
+.gl-rcard { position: relative; background: linear-gradient(165deg,#fff 0%,#fff4f8 55%,#f3edff 100%);
+  border: 1px solid rgba(255,255,255,0.9); border-radius: 18px; padding: 20px 18px 0; overflow: hidden;
+  box-shadow: 0 12px 30px rgba(176,106,255,0.14); }
+.gl-rcard__rel { position: absolute; top: 0; right: 16px; display: inline-flex; align-items: center; gap: 5px; color: #fff;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.03em; padding: 6px 12px; border-radius: 0 0 12px 12px; box-shadow: 0 6px 14px rgba(176,106,255,0.3); }
+.gl-rcard__rel--fav { background: linear-gradient(120deg,#ff7eb3,#a06bff); }
+.gl-rcard__rel--rep { background: linear-gradient(120deg,#a06bff,#6b8cff); }
+.gl-rcard__rel--new { background: linear-gradient(120deg,#56c9b0,#46a0c0); }
+.gl-rcard__top { display: flex; align-items: center; gap: 13px; margin-bottom: 14px; }
+.gl-rcard__pic { width: 54px; height: 54px; border-radius: 50%; background: #ccc center/cover no-repeat; flex: 0 0 auto; border: 3px solid #fff; box-shadow: 0 6px 14px rgba(120,80,140,0.2); }
+.gl-rcard__id b { display: block; font-size: 18px; font-weight: 800; color: #2a2342; } .gl-rcard__id small { font-size: 12px; color: #9a8fb0; }
+.gl-rcard__stats { display: flex; gap: 8px; margin-bottom: 16px; }
+.gl-rcard__stats span { flex: 1; text-align: center; display: flex; flex-direction: column; }
+.gl-rcard__stats b { font-size: 18px; font-weight: 800; color: #2a2342; } .gl-rcard__stats small { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #a59faa; margin-top: 4px; }
+.gl-rcard__er { background: linear-gradient(120deg,#ff6fae,#a06bff 70%); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
+.gl-rcard__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(176,106,255,0.12); }
+.gl-rcard__bar span { display: block; height: 100%; background: linear-gradient(90deg,#ff7eb3,#a06bff); }
+
+/* Note · handwritten postcard */
+.gl-postcard { position: relative; max-width: 540px; background: #fffdf7; border-radius: 8px; padding: 36px 34px 26px;
+  box-shadow: 0 20px 44px rgba(120,80,140,0.2); margin-top: 22px; transform: rotate(-1deg); }
+.gl-postcard__tape { position: absolute; top: -12px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 120px; height: 28px; background: rgba(255,226,150,0.7); }
+.gl-postcard__msg { font-family: 'Caveat', cursive; font-size: 28px; line-height: 1.3; color: #3a3142; margin: 0; text-align: left; }
+.gl-postcard__msg b { color: #a06bff; }
+.gl-postcard__sign { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.gl-postcard__av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg,#ff8fb1,#a06bff); color: #fff; font-weight: 700; font-size: 19px; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+.gl-postcard__sign b { font-family: 'Caveat', cursive; font-size: 23px; color: #2a2342; display: block; line-height: 1.1; }
+.gl-postcard__sign small { font-size: 12px; color: #8a7fa0; }
+
+/* Recap · editorial dark */
+.gl-recap2 { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
+.gl-recap2__h { font-family: 'Fraunces', serif; font-weight: 700; font-size: clamp(40px,6vw,66px); line-height: 0.96; color: #fff; margin: 12px 0 14px; letter-spacing: -0.01em; }
+.gl-recap2__h em { font-style: normal; }
+.gl-recap2__sub { font-size: 15px; color: #e7c9f0; max-width: 330px; margin: 0 0 22px; }
+.gl-recap2__ledger { display: flex; flex-direction: column; }
+.gl-led { display: flex; align-items: baseline; gap: 18px; padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.14); }
+.gl-led:last-child { border-bottom: 0; }
+.gl-led b { font-size: 38px; font-weight: 800; letter-spacing: -0.03em; color: #fff; min-width: 128px; }
+.gl-led small { font-size: 13px; color: #c9b3d6; }
+.gl-led--hero b { font-size: 46px; background: linear-gradient(120deg,#ffd1a8,#ff8fb3 60%,#cda9ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+@media (max-width: 900px) {
+  .gl-recap2 { grid-template-columns: 1fr; gap: 22px; }
+  .gl-wall { columns: 2; }
+  .gl-hwrap { width: 320px; height: 250px; }
+}
+
+/* ---- Thank-yous slide ---- */
+.glt-cards { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin: 8px 0 28px; }
+.glt-card { position: relative; width: 330px; background: #fffdf7; border-radius: 10px; padding: 24px 24px 18px; box-shadow: 0 18px 40px rgba(120,80,140,0.2); transform: rotate(var(--t)); text-align: left; }
+.glt-card__seal { position: absolute; top: -14px; right: -12px; width: 54px; height: 54px; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #ff7d9b, #c0234a); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; box-shadow: 0 6px 16px rgba(192,35,74,0.4); transform: rotate(8deg); }
+.glt-card__seal i { font-style: normal; font-size: 8px; letter-spacing: 0.1em; margin-top: -1px; }
+.glt-card__msg { font-family: 'Caveat', cursive; font-size: 25px; line-height: 1.32; color: #3a3142; margin: 4px 0 16px; }
+.glt-card__sign { display: flex; align-items: center; gap: 10px; border-top: 1px dashed #e6dcc8; padding-top: 12px; }
+.glt-card__av { width: 38px; height: 38px; border-radius: 50%; background: #ccc center/cover no-repeat; flex: 0 0 auto; }
+.glt-card__sign b { font-size: 14px; color: #2a2342; display: block; line-height: 1.1; }
+.glt-card__sign small { font-size: 11px; color: #8a7fa0; }
+.glt-cta { display: flex; align-items: center; gap: 16px; background: rgba(255,255,255,0.74); border: 1px solid rgba(255,255,255,0.9); border-radius: 18px; padding: 14px 16px 14px 20px; box-shadow: 0 14px 30px rgba(120,80,140,0.14); max-width: 580px; }
+.glt-cta__avs { display: flex; flex: 0 0 auto; }
+.glt-cta__avs span { width: 40px; height: 40px; border-radius: 50%; background: #ccc center/cover no-repeat; border: 2px solid #fff; margin-left: -12px; }
+.glt-cta__avs span:first-child { margin-left: 0; }
+.glt-cta__txt { text-align: left; flex: 1; }
+.glt-cta__txt b { display: block; font-size: 15px; color: #2a2342; }
+.glt-cta__txt small { font-size: 12px; color: #6b6080; }
+.glt-cta__btn { margin: 0 !important; flex: 0 0 auto; padding: 12px 20px; }
+@media (max-width: 900px) { .glt-cta { flex-wrap: wrap; } .glt-cta__btn { width: 100%; } }

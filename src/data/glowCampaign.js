@@ -23,7 +23,7 @@ export const PLATFORM = {
 
 export const CREATORS = [
   {
-    name: 'Samantha', handle: '@samanthaglow', pic: I2, top: true,
+    name: 'Samantha', handle: '@samanthaglow', pic: I2, top: true, rel: 'Favorite',
     views: 756, eng: 241, er: 31.9, storyEst: 95,
     posts: [
       { plat: 'IG Reel', img: I1, views: 443, eng: 136, er: 30.7 },
@@ -33,7 +33,7 @@ export const CREATORS = [
     ],
   },
   {
-    name: 'Lulu Lavender', handle: '@lulu.lavender', pic: I1,
+    name: 'Lulu Lavender', handle: '@lulu.lavender', pic: I1, rel: 'Repeat',
     views: 848, eng: 181, er: 21.3, storyEst: 0,
     posts: [
       { plat: 'IG Reel', img: I2, views: 215, eng: 30, er: 14.0 },
@@ -42,7 +42,7 @@ export const CREATORS = [
     ],
   },
   {
-    name: 'Marina', handle: '@luckymia', pic: I2,
+    name: 'Marina', handle: '@luckymia', pic: I2, rel: 'Repeat',
     views: 572, eng: 85, er: 14.9, storyEst: 253,
     posts: [
       { plat: 'IG Reel', img: I1, views: 446, eng: 68, er: 15.2 },
@@ -51,7 +51,7 @@ export const CREATORS = [
     ],
   },
   {
-    name: 'Emma', handle: '@emmaboersma', pic: I1,
+    name: 'Emma', handle: '@emmaboersma', pic: I1, rel: 'New find',
     views: 794, eng: 102, er: 12.8, storyEst: 1346,
     posts: [
       { plat: 'TikTok', img: I2, views: 237, eng: 24, er: 10.1 },

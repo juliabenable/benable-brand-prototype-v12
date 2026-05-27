@@ -35,7 +35,7 @@ export default function GlowLoveWrap({ onBack }) {
   return (
     <div className="gl">
       <article
-        className={`gl-stage gl-grad--${slide.grad}`}
+        className={`gl-stage gl-grad--${slide.grad} ${slide.dark ? 'gl-stage--dark' : ''}`}
         onMouseDown={() => setPaused(true)}
         onMouseUp={() => setPaused(false)}
         onMouseLeave={() => setPaused(false)}
