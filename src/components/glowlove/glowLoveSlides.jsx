@@ -114,7 +114,7 @@ export function Cover() {
 
 /* Reach · C — heart of dots (clean hex lattice + soft sphere + pulse) */
 const HEART = (() => {
-  const pts = []; const step = 0.11; let row = 0;
+  const pts = []; const step = 0.088; let row = 0;   /* ~470 dots → 1 dot = 10 people */
   const sx = 150, sy = 106, cx = 215, cy = 172;
   for (let y = 1.32; y >= -1.26; y -= step, row += 1) {
     const xoff = row % 2 ? step / 2 : 0;
@@ -124,8 +124,8 @@ const HEART = (() => {
   }
   return pts;
 })();
-const HEART_DOT = 10;
-const PEOPLE_PER_DOT = Math.round(TOTALS.reach.base / HEART.length);
+const HEART_DOT = 8;
+const PEOPLE_PER_DOT = 10;
 
 export function Reach() {
   const play = usePlayOnMount();
@@ -146,7 +146,7 @@ export function Reach() {
           );
         })}
       </div>
-      <p className="gl-sub">each dot ≈ {PEOPLE_PER_DOT} people · observed {TOTALS.observedViews.toLocaleString()} → {fmt(TOTALS.reach.high)} with stories</p>
+      <p className="gl-sub">each dot = {PEOPLE_PER_DOT} people · observed {TOTALS.observedViews.toLocaleString()} → {fmt(TOTALS.reach.high)} with stories</p>
       <div className="gl-chips">
         <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--tt"><TikTokLogo /></span>TikTok <b>{TT_PCT}%</b></span>
         <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--ig"><IgLogo /></span>Instagram <b>{IG_PCT}%</b></span>
