@@ -12,6 +12,14 @@ const TT_PCT = Math.round((PLATFORM.tiktok / (PLATFORM.tiktok + PLATFORM.reels))
 const IG_PCT = 100 - TT_PCT;
 const CAMPAIGN = "Experience 28 Litsea's Award Winning Body Oil";
 
+/* real platform logos (sized via CSS; inherit colour) */
+const TikTokLogo = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.98a8.18 8.18 0 0 0 4.76 1.52V7.05a4.84 4.84 0 0 1-1-.36z" fill="currentColor" /></svg>
+);
+const IgLogo = () => (
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" /><circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" /><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor" /></svg>
+);
+
 /* count-up that runs once `play` flips true, after an optional delay */
 function useCountUp(to, { dec = 0, dur = 1300, delay = 0, play }) {
   const [val, setVal] = useState(0);
@@ -140,8 +148,8 @@ export function Reach() {
       </div>
       <p className="gl-sub">each dot ≈ {PEOPLE_PER_DOT} people · observed {TOTALS.observedViews.toLocaleString()} → {fmt(TOTALS.reach.high)} with stories</p>
       <div className="gl-chips">
-        <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--tt">♪</span>TikTok <b>{TT_PCT}%</b></span>
-        <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--ig">◉</span>Instagram <b>{IG_PCT}%</b></span>
+        <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--tt"><TikTokLogo /></span>TikTok <b>{TT_PCT}%</b></span>
+        <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--ig"><IgLogo /></span>Instagram <b>{IG_PCT}%</b></span>
       </div>
     </div>
   );
@@ -182,8 +190,8 @@ export function Comments() {
         <h2 className="gl-h2">{WRAPPED_COMMENTS.length} comments.<br /><span className="gl-accent">All love.</span></h2>
         <p className="gl-sub">Real reactions poured in across your creators' TikToks &amp; Reels — and not one of them was anything but glowing.</p>
         <div className="gl-chips">
-          <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--tt">♪</span><b>{TT.length}</b> TikTok</span>
-          <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--ig">◉</span><b>{IG.length}</b> Instagram</span>
+          <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--tt"><TikTokLogo /></span><b>{TT.length}</b> TikTok</span>
+          <span className="gl-chip"><span className="gl-chip__ic gl-chip__ic--ig"><IgLogo /></span><b>{IG.length}</b> Instagram</span>
         </div>
         <span className="gl-chip gl-chip--ghost">most-said: <b>“glow”</b> ✨</span>
       </div>
@@ -203,8 +211,8 @@ export function CommentsWall() {
       <div className="gl-cnt-head"><span className="gl-eyebrow">Every single one</span><h2 className="gl-h2">The <span className="gl-accent">wall of love.</span></h2></div>
       <div className="gl-wall">
         {WRAPPED_COMMENTS.map((c, i) => (
-          <div key={i} className="gl-wcard" style={{ '--t': WALL_TILT[i % WALL_TILT.length] }}>
-            <span className={`gl-wcard__plat ${c.p === 'tt' ? 'tt' : 'ig'}`}>{c.p === 'tt' ? '♪' : '◉'}</span>
+          <div key={i} className="gl-wcard" style={{ '--t': WALL_TILT[i % WALL_TILT.length], '--i': i }}>
+            <span className={`gl-wcard__plat ${c.p === 'tt' ? 'tt' : 'ig'}`}>{c.p === 'tt' ? <TikTokLogo /> : <IgLogo />}</span>
             <div className="gl-wcard__row">
               <span className="gl-wcard__av" style={{ background: avColor(c.u) }}>{c.u[0].toUpperCase()}</span>
               <div className="gl-wcard__b"><div className="gl-wcard__u">@{c.u}</div><div className="gl-wcard__t">{mention(c.t)}</div></div>
@@ -226,7 +234,7 @@ export function Content() {
       <div className="gl-cnt-head"><span className="gl-eyebrow">The content they made</span><h2 className="gl-h2"><span className="gl-accent">{TOTALS.pieces} pieces</span> of glow.</h2></div>
       <div className="gl-photowall">
         {posts.map((p, i) => (
-          <div key={i} className="gl-photo" style={{ '--t': TILT[i % TILT.length], marginTop: i % 2 ? '30px' : '0', marginLeft: i ? '-10px' : 0, zIndex: i + 1 }}>
+          <div key={i} className="gl-photo" style={{ '--t': TILT[i % TILT.length], '--i': i, marginTop: i % 2 ? '30px' : '0', marginLeft: i ? '-10px' : 0, zIndex: i + 1 }}>
             <span className="gl-photo__img" style={{ backgroundImage: `url(${p.img})` }} />
             <span className="gl-photo__tag"><span className="gl-photo__av" style={{ backgroundImage: `url(${p.creator.pic})` }} /><span><b>{p.creator.name}</b><small>{p.creator.handle}</small></span></span>
           </div>
@@ -244,10 +252,10 @@ export function Creators() {
     <div className="gl-slide">
       <div className="gl-cnt-head"><span className="gl-eyebrow">Your creator crew</span><h2 className="gl-h2">The people <span className="gl-accent">behind the glow.</span></h2></div>
       <div className="gl-team">
-        {CREATORS.map((c) => {
+        {CREATORS.map((c, i) => {
           const [cls, icon] = relMeta[c.rel] || relMeta.Repeat;
           return (
-            <div key={c.handle} className="gl-rcard">
+            <div key={c.handle} className="gl-rcard" style={{ '--i': i }}>
               <span className={`gl-rcard__rel gl-rcard__rel--${cls}`}>{icon} {c.rel}</span>
               <div className="gl-rcard__top">
                 <span className="gl-rcard__pic" style={{ backgroundImage: `url(${c.pic})` }} />
@@ -258,7 +266,7 @@ export function Creators() {
                 <span><b>{c.eng}</b><small>eng.</small></span>
                 <span><b className="gl-rcard__er">{c.er}%</b><small>ER</small></span>
               </div>
-              <div className="gl-rcard__bar"><span style={{ width: `${(c.er / maxEr) * 100}%` }} /></div>
+              <div className="gl-rcard__bar"><span style={{ '--w': `${(c.er / maxEr) * 100}%` }} /></div>
             </div>
           );
         })}
@@ -304,7 +312,7 @@ export function Recap({ onCta }) {
       </div>
       <div className="gl-recap2__ledger">
         {ledger.map(([v, l, hero], i) => (
-          <div key={i} className={`gl-led ${hero ? 'gl-led--hero' : ''}`}><b>{v}</b><small>{l}</small></div>
+          <div key={i} className={`gl-led ${hero ? 'gl-led--hero' : ''}`} style={{ '--i': i }}><b>{v}</b><small>{l}</small></div>
         ))}
       </div>
     </div>
