@@ -113,7 +113,7 @@ export function Creators() {
             <div className="wr-tcard__stats">
               <span><b>{fmt(c.views)}</b><small>views</small></span>
               <span><b>{c.eng}</b><small>engagements</small></span>
-              <span><b>{c.er}%</b><small>ER</small></span>
+              <span><b>{c.er}%</b><small>Engagement rate</small></span>
             </div>
             <div className="wr-tcard__erbar"><span style={{ width: `${(c.er / maxEr) * 100}%` }} /></div>
           </div>
